@@ -3,10 +3,9 @@ from fastapi import FastAPI
 app = FastAPI()
 
 @app.get("/")
-def read_root():
-    return {"message": "Hello from CI/CD demo!"}
+def home():
+    return {"message":"Hi guys"}
 
 @app.get("/health")
-def health_check():
-    return {"status": "ok"}
-
+def health():
+    return {"status":"ok"}
