@@ -31,8 +31,8 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Build and push
         uses: docker/build-push-action@v6
@@ -40,5 +40,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/hello-cicd:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/hello-cicd:${{ github.sha }}
+            ${{ secrets.DOCKER_USERNAME }}/hello-cicd:latest
+            ${{ secrets.DOCKER_USERNAME }}/hello-cicd:${{ github.sha }}
