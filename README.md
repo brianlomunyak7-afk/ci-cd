@@ -5,17 +5,17 @@ is a  small FastAPI app with a complete CI/CD pipeline. Every push to main is te
 ## Pipeline
 
 
-git push --> {pytest} --> {dockerbuild} --> {push to dockerhub} --> deploy in a cloud provider
+- git push --> {pytest} --> {dockerbuild} --> {push to dockerhub} --> deploy in a cloud provider
                 |-->if anything fail nothing is moves forward
 
-why dockerhub --> the ci/cd only build on a runner which is a temporary machine and deleteed when the process is over. Therefore the ci/cd build and push images in a permanent place where it is always online. Through this the online providers can know acces the docker images in docker hub
+- why dockerhub --> the ci/cd only build on a runner which is a temporary machine and deleteed when the process is over. Therefore the ci/cd build and push images in a permanent place where it is always online. Through this the online providers can know acces the docker images in docker hub
 
 # what i used:
-fastapi --> is the app
-Docker --> packages it
-Github Actions --> automate the build
-Docker Hub --> store the docker images so servers can pull it
-Pytest --> test the app
+- fastapi --> is the app
+- Docker --> packages it
+- Github Actions --> automate the build
+- Docker Hub --> store the docker images so servers can pull it
+- Pytest --> test the app
 
 # Runnning it locally
 
