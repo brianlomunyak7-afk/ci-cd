@@ -11,11 +11,11 @@ git push --> {pytest} --> {dockerbuild} --> {push to dockerhub} --> deploy in a 
 why dockerhub --> the ci/cd only build on a runner which is a temporary machine and deleteed when the process is over. Therefore the ci/cd build and push images in a permanent place where it is always online. Through this the online providers can know acces the docker images in docker hub
 
 # what is used:
-fastapi
-docker
-Github Actions
-Docker Hub
-Pytest
+fastapi --> is the app
+Docker --> packages it
+Github Actions --> automate the build
+Docker Hub --> store the docker images so servers can pull it
+Pytest --> test the app
 
 
 ## Endpoints
