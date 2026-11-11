@@ -23,10 +23,10 @@ using git:
  ```bash
  git clone https:github.com/brianlomunyak7-afk/ci.git
 
- cd ci
+ ~/cd ci
 
  using vs code:
-  cd ci: code .
+~/cd ci: code .
 
 With Docker:
 ```bash
@@ -47,14 +47,5 @@ Run the tests:
 ```bash
 pytest -v
 ```
-
-## Design decisions
-
-- **Tests gate the build.** `build-and-push` uses `needs: test`, so a failing test means no image is published.
-- **Builds only on push to `main`.** Pull requests run tests but never publish.
-- **Two image tags.** `latest` for convenience, and the commit SHA so every image traces back to exact code and can be rolled back.
-- **Secrets in GitHub Secrets.** Docker Hub credentials are never stored in the repo.
-- **Docker Hub access token, not my password.** The token has Read & Write scope only and can be revoked without touching my account.
-- **Dependency layer cached.** `requirements.txt` is copied before the code, so code edits rebuild in seconds.
 
 
