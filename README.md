@@ -1,26 +1,22 @@
-# hello-cicd
+CI
 
-A small FastAPI app with a complete CI/CD pipeline. Every push to `main` is tested, packaged as a Docker image, and published to Docker Hub.
-
-![CI](https://github.com/brianlomunyak7-afk/ci/actions/workflows/ci.yml/badge.svg)
+is a  small FastAPI app with a complete CI/CD pipeline. Every push to `main` is tested, packaged as a Docker image, and published to Docker Hub.
 
 ## Pipeline
 
-```
-git push → [pytest] → [docker build] → [push to Docker Hub]
-              │
-            fail → pipeline stops, nothing is published
-```
 
-| Stage | Tool | What it does |
-|---|---|---|
-| Test | pytest | Checks both endpoints. A failure blocks everything after it |
-| Build | Docker | Packages the app and its dependencies into one image |
-| Publish | Docker Hub | Stores the image, tagged `latest` and with the commit SHA |
+git push --> {pytest} --> {dockerbuild} --> {push to dockerhub} --> deploy in a cloud provider
+                |-->if anything fail nothing is moved to deployment
 
-## Tech stack
+why dockerhub --> the ci/cd only build on a runner which is a temporary machine and deleteed when the process is over. Therefore the ci/cd build and push images in a permanent place where it is always online. Through this the online providers can know acces the docker images in docker hub
 
-FastAPI, pytest, Docker, GitHub Actions, Docker Hub
+# what is used:
+fastapi
+docker
+Github Actions
+Docker Hub
+Pytest
+
 
 ## Endpoints
 
